@@ -1,0 +1,22 @@
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "require"
+  },
+  "title": {
+    "__TYPE__": "FieldContent",
+    "value": "should",
+    "type": "Text"
+  },
+  "content": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Ullamco minim laboris minim deserunt magna. Sit minim aute sunt aliqua duis nisi cupidatat consectetur et mollit cupidatat proident adipisicing amet. Consectetur velit nisi consectetur anim anim irure quis cillum esse fugiat aute et sint."
+        }
+      }
+    ]
+  }
+}

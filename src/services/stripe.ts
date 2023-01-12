@@ -1,6 +1,6 @@
 import Stripe from 'stripe';
 
-
+//stripe pelo lado do servidor usando a chave secreta
 
 
 export const stripe = new Stripe(process.env.STRIPE_API_KEY!, {

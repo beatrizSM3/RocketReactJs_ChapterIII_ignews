@@ -1,0 +1,7 @@
+{
+  "apiEndpoint": "https://ignews-rocketseat-desafio.prismic.io/api/v2",
+  "libraries": [
+    "@/slices"
+  ],
+  "_latest": "0.6.0"
+}
