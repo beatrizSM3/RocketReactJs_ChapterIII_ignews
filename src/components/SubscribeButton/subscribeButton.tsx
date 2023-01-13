@@ -19,10 +19,10 @@ export function SubscribeButton({priceId}: SubscribeButtonProps){
             return;
         }
 
-        // if(session.data!.activeSubscription != null ){
-        //     router.push('/posts')
-        //     return;
-        // }
+        if(session.data!.activeSubscription != null ){
+            router.push('/posts')
+            return;
+        }
 
         try {
             const response = await api.post('/subscribe')

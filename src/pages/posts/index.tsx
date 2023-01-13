@@ -1,4 +1,3 @@
-
 import Head from 'next/head';
 import { GetStaticProps } from 'next/types';
 import { getPrismicClient } from '../../services/prismic';
