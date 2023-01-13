@@ -5,7 +5,7 @@ import styles from './styles.module.scss'
 import {signIn, signOut, useSession} from 'next-auth/react'
 
 export function SingInButton(){
-    const [isUserLoggedIn, setIsUserLoggedIn] = useState(true)
+
     const session = useSession()
 
     console.log(session)
