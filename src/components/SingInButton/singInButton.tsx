@@ -10,7 +10,7 @@ export function SingInButton(){
     const name = session.data?.user?.name
 
     console.log(session)
-
+    console.log(name)
     return session.data && session.data != undefined ? (
         <button type="button" className={styles.singInButton} onClick={()=> signOut()}>
             <FaGithub color="#04d361"/>
