@@ -3,7 +3,7 @@ import NextAuth, { Session } from "next-auth"
 import GithubProvider from "next-auth/providers/github"
 import { fauna } from "../../../services/fauna"
 
-type  WithAdditionalParams<T> = T & { activeSubscription: object | null; expires: string; };
+// type  WithAdditionalParams<T> = T & { activeSubscription: object | null; expires: string; };
 
 
 export default NextAuth ({
@@ -53,7 +53,7 @@ export default NextAuth ({
 
         const newsession = {...session, activeSubscription: userActiveSubscription, expires: ''}
 
-        return  Promise.resolve(newsession as WithAdditionalParams<Session>); 
+        return  Promise.resolve(newsession); 
         
   
         // return {
@@ -65,7 +65,7 @@ export default NextAuth ({
         console.log(err, "error")
         const newsession = {...session, activeSubscription: null, expires: ''}
 
-        return  Promise.resolve(newsession as WithAdditionalParams<Session>); 
+        return  Promise.resolve(newsession); 
         // return {
         //   ...session,
         //   activeSubscription: null
