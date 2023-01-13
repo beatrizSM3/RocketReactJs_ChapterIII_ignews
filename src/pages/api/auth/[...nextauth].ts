@@ -1,8 +1,9 @@
 import { query as q } from "faunadb"
-import NextAuth from "next-auth"
+import NextAuth, { Session } from "next-auth"
 import GithubProvider from "next-auth/providers/github"
 import { fauna } from "../../../services/fauna"
 
+type  WithAdditionalParams<T> = T & { activeSubscription: object | null; expires: string; };
 
 
 export default NextAuth ({
@@ -23,7 +24,9 @@ export default NextAuth ({
   // }
   // ,
   callbacks: {
-    async session({session}) {
+    async session(session) {
+
+      
       try {
         const userActiveSubscription = await fauna.query(
           q.Get(
@@ -47,17 +50,26 @@ export default NextAuth ({
             ])
           )
         )
+
+        const newsession = {...session, activeSubscription: userActiveSubscription, expires: ''}
+
+        return  Promise.resolve(newsession as WithAdditionalParams<Session>); 
+        
   
-        return {
-          ...session,
-          activeSubscription: userActiveSubscription
-        };
+        // return {
+        //   ...session,
+        //   activeSubscription: userActiveSubscription,
+          
+        // };
       } catch(err){
         console.log(err, "error")
-        return {
-          ...session,
-          activeSubscription: null
-        };
+        const newsession = {...session, activeSubscription: null, expires: ''}
+
+        return  Promise.resolve(newsession as WithAdditionalParams<Session>); 
+        // return {
+        //   ...session,
+        //   activeSubscription: null
+        // };
       }
     },
     async signIn({ user, account, profile }) {
