@@ -10,7 +10,7 @@ export function SingInButton(){
 
     console.log(session)
 
-    return session.status == "authenticated" ? (
+    return session.data? (
         <button type="button" className={styles.singInButton} onClick={()=> signOut()}>
             <FaGithub color="#04d361"/>
             {session.data.user?.name}
