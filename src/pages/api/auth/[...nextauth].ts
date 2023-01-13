@@ -53,7 +53,7 @@ export default NextAuth ({
 
         const newsession = {...session, activeSubscription: userActiveSubscription, expires: ''}
 
-        return  Promise.resolve(newsession); 
+        return  newsession; 
         
   
         // return {
@@ -65,7 +65,7 @@ export default NextAuth ({
         console.log(err, "error")
         const newsession = {...session, activeSubscription: null, expires: ''}
 
-        return  Promise.resolve(newsession); 
+        return  newsession; 
         // return {
         //   ...session,
         //   activeSubscription: null
