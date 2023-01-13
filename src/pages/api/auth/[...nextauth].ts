@@ -51,7 +51,7 @@ export default NextAuth ({
           )
         )
 
-        const newsession = {...session, activeSubscription: userActiveSubscription, expires: '', name: session.user!.name!}
+        const newsession = {...session, activeSubscription: userActiveSubscription, expires: '', name: session.user.name}
 
         return  newsession; 
         
@@ -63,7 +63,7 @@ export default NextAuth ({
         // };
       } catch(err){
         console.log(err, "error")
-        const newsession = {...session, activeSubscription: null, expires: '',name: session.user!.name!}
+        const newsession = {...session, activeSubscription: null, expires: '',name: session.user.name}
 
         return  newsession; 
         // return {
