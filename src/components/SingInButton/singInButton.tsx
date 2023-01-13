@@ -7,11 +7,11 @@ import {signIn, signOut, useSession} from 'next-auth/react'
 export function SingInButton(){
 
     const session = useSession()
-    const name = session.data?.user?.name
+    const name = session.data?.name
 
     console.log(session)
     console.log(name)
-    return session.data?.user?.name != undefined ? (
+    return session.data?.name != undefined ? (
         <button type="button" className={styles.singInButton} onClick={()=> signOut()}>
             <FaGithub color="#04d361"/>
             {name}
