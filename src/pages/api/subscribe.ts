@@ -19,8 +19,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method === 'POST'){
 
         const session = await getSession({ req })
+       
 
-        if (!session?.user?.email) {
+        if (!session?.email) {
             return res.status(400).json({
               message: "Logged user does not have an e-mail"
             })
@@ -30,7 +31,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             q.Get(
                 q.Match(
                     q.Index('user_by_email'),
-                    q.Casefold(session.user.email)
+                    q.Casefold(session.email)
                 )
             )
           )
@@ -39,7 +40,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
         if (!customerId){
             const stripeCustomer = await stripe.customers.create({
-                email: session.user.email,
+                email: session.email,
                 // metadata: {
     
                 // }
