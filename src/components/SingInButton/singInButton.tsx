@@ -13,7 +13,7 @@ export function SingInButton(){
     return session.data? (
         <button type="button" className={styles.singInButton} onClick={()=> signOut()}>
             <FaGithub color="#04d361"/>
-            {session.data.user?.name}
+            {session.data.user!.name}
             <FiX color="#737380" className={styles.closeIcon}/>
         </button>
     ): (
